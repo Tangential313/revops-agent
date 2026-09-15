@@ -1,0 +1,47 @@
+[
+  {
+    "opportunity_id": "opp_001",
+    "account_id": "acct_001",
+    "owner_id": "owner_001",
+    "name": "Northstar Analytics - Enterprise Expansion",
+    "stage": "Proposal",
+    "amount": 65000,
+    "currency": "GBP",
+    "created_at": "2026-08-01",
+    "stage_entered_at": "2026-09-05",
+    "close_date": "2026-09-30",
+    "last_activity_at": "2026-09-12",
+    "status": "open"
+  },
+  {
+    "opportunity_id": "opp_002",
+    "account_id": "acct_002",
+    "owner_id": "owner_002",
+    "name": "Mercury Systems - New Business",
+    "stage": "Discovery",
+    "amount": 42000,
+    "currency": "GBP",
+    "created_at": "2026-04-15",
+    "stage_entered_at": "2026-05-10",
+    "close_date": "2026-07-31",
+    "last_activity_at": "2026-06-01",
+    "status": "open"
+  },
+  {
+    "opportunity_id": "opp_003",
+    "account_id": "acct_003",
+    "owner_id": "owner_003",
+    "name": "Atlas Cloud - Platform Contract",
+    "stage": "Closed Won",
+    "amount": 90000,
+    "currency": "GBP",
+    "created_at": "2026-07-01",
+    "stage_entered_at": "2026-08-20",
+    "close_date": "2026-08-20",
+    "last_activity_at": "2026-08-20",
+    "status": "open"
+  }
+]
+
+
+
