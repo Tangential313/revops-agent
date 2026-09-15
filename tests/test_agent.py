@@ -51,3 +51,48 @@ def test_invalid_model_response_is_rejected():
         "status": "validation_failed",
         "response": None,
     }
+class ExplodingFakeModel:
+    def generate(self, agent_state):
+        raise RuntimeError("Model provider unavailable")
+
+def test_model_failure_is_handled():
+    result = reason_about_opportunity(
+        {"example": "state"},
+        ExplodingFakeModel(),
+    )
+
+    assert result == {
+        "status": "model_error",
+        "response": None,
+    }
+class FlakyFakeModel:
+    def __init__(self):
+        self.calls = 0
+
+    def generate(self, agent_state):
+        self.calls += 1
+
+        if self.calls == 1:
+            raise RuntimeError("Temporary provider failure")
+
+        return {
+            "summary": "Opportunity requires review.",
+            "reasoning": "The opportunity shows stale pipeline signals.",
+            "recommended_intervention": "review_opportunity",
+            "evidence": [
+                "days_since_activity=105",
+            ],
+            "confidence": 0.90,
+        }
+
+
+def test_model_failure_retries_once():
+    model = FlakyFakeModel()
+
+    result = reason_about_opportunity(
+        {"example": "state"},
+        model,
+    )
+
+    assert result["status"] == "success"
+    assert model.calls == 2
