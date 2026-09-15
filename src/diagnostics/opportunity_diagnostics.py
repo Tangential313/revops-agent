@@ -1,5 +1,5 @@
 from datetime import date
-
+from src.diagnostics.action_policy import determine_action
 
 def diagnose_opportunity(opportunity, today):
     close_date = date.fromisoformat(opportunity["close_date"])
@@ -57,26 +57,7 @@ def diagnose_opportunity(opportunity, today):
     if stage_status_mismatch:
         diagnostics.append("stage_status_mismatch")
 
-    if stage_status_mismatch:
-        recommended_action = {
-            "action": "request_data_correction",
-            "requires_approval": True,
-            "automation_allowed": False,
-        }
-
-    elif stale_opportunity:
-        recommended_action = {
-            "action": "request_owner_review",
-            "requires_approval": True,
-            "automation_allowed": True,
-        }
-
-    else:
-        recommended_action = {
-            "action": "no_action",
-            "requires_approval": False,
-            "automation_allowed": False,
-        }
+    recommended_action = determine_action(diagnostics)
 
     return {
         "opportunity_id": opportunity["opportunity_id"],
