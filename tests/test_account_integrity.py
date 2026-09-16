@@ -1,9 +1,7 @@
 import json
 
-from src.diagnostics.account_integrity import (
-    find_accounts_without_opportunities,
-    find_orphaned_opportunities,
-)
+from src.diagnostics.account_integrity import find_orphaned_opportunities
+from src.diagnostics.account_conditions import find_accounts_without_opportunities
 
 def load_fixtures():
     with open("data/fixtures/accounts.json") as file:
