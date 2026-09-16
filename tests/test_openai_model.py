@@ -96,3 +96,7 @@ def test_openai_model_client_returns_valid_dict():
         "evidence": ["stale_opportunity"],
         "confidence": 0.91,
     }
+def test_openai_model_client_uses_cheap_default_model():
+    client = OpenAIModelClient(client=FakeOpenAIClient())
+
+    assert client.model == "gpt-5-nano"

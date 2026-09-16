@@ -41,16 +41,16 @@ You must not:
 
 
 class OpenAIModelClient:
-    def __init__(self, client=None, model=None):
+    def __init__(self, client=None, model="gpt-5-nano"):
         self.client = client or OpenAI()
         self.model = model
-
     def generate(self, agent_state):
         response = self.client.responses.parse(
             model=self.model,
             instructions=SYSTEM_INSTRUCTIONS,
             input=json.dumps(agent_state),
             text_format=AgentResponse,
+	    max_output_tokens=300,		
         )
 
         return response.output_parsed.model_dump()
