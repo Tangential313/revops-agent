@@ -28,4 +28,10 @@ agent_state = build_agent_state(opportunity, diagnosis)
 print("Agent state:")
 print(json.dumps(agent_state, indent=2))
 
-print("\nNo API call made yet.")
+print("\nCalling model once...")
+
+model_client = OpenAIModelClient()
+response = model_client.generate(agent_state)
+
+print("\nModel response:")
+print(json.dumps(response, indent=2))
