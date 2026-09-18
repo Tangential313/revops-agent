@@ -1,0 +1,32 @@
+[
+  {
+    "owner_id": "owner_001",
+    "first_name": "Elena",
+    "last_name": "Martinez",
+    "email": "elena.martinez@revopsagent.example",
+    "role": "Account Executive",
+    "team": "Enterprise Sales",
+    "region": "UK",
+    "status": "active"
+  },
+  {
+    "owner_id": "owner_002",
+    "first_name": "James",
+    "last_name": "Walker",
+    "email": "james.walker@revopsagent.example",
+    "role": "Account Executive",
+    "team": "Enterprise Sales",
+    "region": "UK",
+    "status": "active"
+  },
+  {
+    "owner_id": "owner_003",
+    "first_name": "Sofia",
+    "last_name": "Patel",
+    "email": "sofia.patel@revopsagent.example",
+    "role": "Senior Account Executive",
+    "team": "Enterprise Sales",
+    "region": "UK",
+    "status": "active"
+  }
+]
